@@ -1,13 +1,13 @@
 apply plugin: 'maven-publish'
 apply plugin: 'com.jfrog.bintray'
 
-version '0.0.1'
+version android.defaultConfig.versionName
 group 'com.jack.sample'
 
 publishing {
     publications {
         Production(MavenPublication) {
-            artifact("$buildDir/outputs/aar/app-release.aar")
+            artifact("$buildDir/outputs/aar/sample-release.aar")
             groupId
             artifactId 'sample'
             version this.version
@@ -35,7 +35,7 @@ bintray {
     key = System.getenv('BINTRAY_API_KEY')
     publications = ['Production']
     configurations = ['archives']
-    override = true
+    override = false
     pkg {
         repo = 'Sample'
         name = 'sample'
