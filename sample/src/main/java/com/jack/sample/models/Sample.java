@@ -1,4 +1,4 @@
-package com.jack.sample;
+package com.jack.sample.models;
 
 public class Sample {
     private String sample;
